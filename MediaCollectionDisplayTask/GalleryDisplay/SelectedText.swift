@@ -13,11 +13,13 @@ struct SelectedText: View {
         text
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
             .padding(5)
+            .background(Color("TextEditorAndCellBkgrd"))
+            .foregroundColor(Color("TextEditorAndCellForeground"))
             .lineLimit(nil)
             .cornerRadius(12)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 1)
+                    .stroke(Color("TextEditorAndCellForeground"), lineWidth: 1)
             )
     }
 }

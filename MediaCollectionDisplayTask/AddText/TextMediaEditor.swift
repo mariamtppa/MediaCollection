@@ -7,14 +7,26 @@
 
 import SwiftUI
 
-struct TextEditor: View {
+struct TextMediaEditor: View {
+    @Binding var textEditorMessage: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TextEditor(text: _textEditorMessage)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+            .foregroundColor(Color("TextEditorAndCellForeground"))
+            .background(Color("TextEditorAndCellBkgrd"))
+            .font(.custom("HelveticaNeue", size: 20))
+            .lineSpacing(5)
+            .padding(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color("TextEditorAndCellForeground"), lineWidth: 2)
+            )   
     }
 }
 
-struct TextEditor_Previews: PreviewProvider {
-    static var previews: some View {
-        TextEditor()
-    }
-}
+//struct TextMediaEditor_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TextMediaEditor()
+//    }
+//}

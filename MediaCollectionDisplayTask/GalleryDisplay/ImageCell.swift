@@ -15,7 +15,7 @@ struct ImageCell: View {
         media.image
             .resizable()
             .frame(width: 70, height: 70)
-            .cornerRadius(12)
+            .cornerRadius(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.white, lineWidth: 1)

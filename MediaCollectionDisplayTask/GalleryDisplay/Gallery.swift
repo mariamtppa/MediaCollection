@@ -15,9 +15,9 @@ struct Gallery: View {
                 ForEach(gallery.collection) { box in
                     if (box.isText == true) {
                         TextCell(media: box).padding(.leading, 5)
-                            .onAppear(perform: {
-                                print(gallery.collection, "mnjnknkjjkbk")
-                            })
+//                            .onAppear(perform: {
+//                                print(gallery.collection, "mnjnknkjjkbk")
+//                            })
                     } else if (box.isImage == true) {
                         ImageCell(media: box).padding(.leading, 5)
                     } else if (box.isVideo == true){

@@ -16,10 +16,12 @@ struct TextCell: View {
     var body: some View {
         media.message
             .padding(3)
+            .background(Color("TextEditorAndCellBkgrd"))
+            .foregroundColor(Color("TextEditorAndCellForeground"))
             .frame(width: 70, height: 70)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 1)
+                    .stroke(Color("TextEditorAndCellForeground"), lineWidth: 1)
             )
             .onTapGesture {
                 mediaCollection.selectedCell = media

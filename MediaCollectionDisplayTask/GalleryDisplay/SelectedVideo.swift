@@ -13,8 +13,6 @@ struct SelectedVideo: View {
     var body: some View {
         VideoPlayer(player: AVPlayer(url:  theUrl))
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-//        VideoPlayer(player: AVPlayer(url: theUrl))
-//            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
     }
 }
 
@@ -22,11 +20,4 @@ struct SelectedVideo: View {
 //    static var previews: some View {
 //        SelectedVideo()
 //    }
-//}
-
-
-//.onTapGesture {
-//  isSheetPresented = true
-//  sheetMode = .video
-//  player = AVPlayer(url: videos[index])
 //}

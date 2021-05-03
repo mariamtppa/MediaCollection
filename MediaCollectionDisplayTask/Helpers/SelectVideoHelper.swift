@@ -77,7 +77,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
                     }
                 }
                 else {
-                    print("not a movie")
+                    //                    print("not a movie")
                 }
             }
             photoPicker.dismissParentScreen = false

@@ -8,22 +8,37 @@
 import SwiftUI
 
 struct SelectMediaTypeScreen: View {
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var showAddTextScreen: Bool
+    @Binding var showAddImageScreen: Bool
+    @Binding var showAddVideoScreen: Bool
+    
     var body: some View {
-        VStack {
-            CustomButton(buttonText: "Add Text", buttonClosure: {
-                            addTextScreen = true
-                            presentationMode.wrappedValue.dismiss()
-                
+        ZStack {
+            Color("MainBackgroundColor")
+            VStack {
+                Spacer()
+                CustomButton(buttonText: "Add Text", buttonClosure: {
+                    showAddTextScreen = true
+                    presentationMode.wrappedValue.dismiss()
+                    
+                })
+                CustomButton(buttonText: "Add Image", buttonClosure: {
+                    showAddImageScreen = true
+                    presentationMode.wrappedValue.dismiss()
+                    
+                })
+                CustomButton(buttonText: "Add Video", buttonClosure: {
+                    showAddVideoScreen = true
+                    presentationMode.wrappedValue.dismiss()
+                })
             }
-            )
-            CustomButton(buttonText: "Add Image", buttonClosure: {})
-            CustomButton(buttonText: "Add Video", buttonClosure: {})
         }
     }
 }
-
-struct SelectMediaTypeScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectMediaTypeScreen()
-    }
-}
+//
+//struct SelectMediaTypeScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SelectMediaTypeScreen()
+//    }
+//}

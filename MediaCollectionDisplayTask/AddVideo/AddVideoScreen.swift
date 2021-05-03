@@ -1,20 +1,49 @@
 //
-//  AddVideoScreen.swift
+//  AddImageMediaView.swift
 //  MediaCollectionDisplayTask
 //
-//  Created by apple on 30/04/2021.
+//  Created by apple on 28/04/2021.
 //
 
 import SwiftUI
 
-struct AddVideoScreen: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+enum AddVideo {
+    case record, upload
 }
 
-struct AddVideoScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        AddVideoScreen()
+struct AddVideoScreen: View {
+    @EnvironmentObject var mediaCollection: MediaCollection
+    @Environment(\.presentationMode) var presentationMode
+    @State private var isVideoPickerDisplay = false
+    @State var addVideo: AddVideo?
+    @State var video = [URL]()
+    @Binding var dismissScreen: Bool
+    
+    var body: some View {
+        ZStack {
+            Color("MainBackgroundColor")
+            VStack {
+                CustomButton(
+                    buttonText: "Record Video",
+                    buttonClosure: {
+                        addVideo = .record
+                        self.isVideoPickerDisplay = true
+                    })
+                CustomButton(
+                    buttonText: "Upload Video",
+                    buttonClosure: {
+                        addVideo = .upload
+                        self.isVideoPickerDisplay = true
+                    })
+                
+            }
+            .sheet(isPresented: self.$isVideoPickerDisplay) {
+                if addVideo == .upload{
+                    PhotoPicker (videos: $video, dismissParentScreen: $dismissScreen)
+                } else if addVideo == .record {
+                    RecordVideoScreen(dismissScreen: $dismissScreen)
+                }
+            }
+        }
     }
 }

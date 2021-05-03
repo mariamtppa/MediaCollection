@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct AddImageMediaImageView: View {
+    var image: Image
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        image
+            .resizable()
+            .renderingMode(.original)
+            .aspectRatio(contentMode: .fit)
     }
 }
 
-struct AddImageMediaImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddImageMediaImageView()
-    }
-}
+//struct AddImageMediaImageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddImageMediaImageView()
+//    }
+//}

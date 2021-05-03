@@ -20,11 +20,11 @@ struct VideoCell: View {
                 player.play()
             }
             .frame(width: 70, height: 70)
-//            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-//            .overlay(
-//                RoundedRectangle(cornerRadius: 12)
-//                    .stroke(Color.gray, lineWidth: 2)
-//            )
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 1)
+            )
             .onTapGesture {
                 mediaCollection.selectedCell = media
             }
